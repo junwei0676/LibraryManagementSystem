@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./layout/default.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">
+        West Coast CC LMS
+    </ui:define>
+
+    <ui:define name="content">
+        <p:messages>
+            <p:autoUpdate/>
+        </p:messages>
+        <h:form id="form">
+            
+            <p:panelGrid columns="2">
+                <f:facet name="header">
+                    <h2>Welcome to West Coast CC Library Management System</h2>
+                    <h4>Log in with your username and password!</h4>
+                </f:facet>
+                Username: <h:inputText value="#{authenticationManagedBean.username}"/>
+                Password: <h:inputSecret value="#{authenticationManagedBean.password}"/>
+            </p:panelGrid>
+            
+            <p:growl id="message" showDetail="true">
+                <p:autoUpdate/>
+            </p:growl>
+            <p:commandButton id="Login" type="submit" styleClass="button" value="Login" action="#{authenticationManagedBean.login}"
+                             style="align-content: center;
+                             width:100%; background-color:#7A8B99; border-color: transparent;"
+                             update="message"/>
+            
+        </h:form>
+    </ui:define>
+
+</ui:composition>
